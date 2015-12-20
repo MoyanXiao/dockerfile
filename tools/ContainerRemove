@@ -1,0 +1,17 @@
+#!/bin/bash 
+
+if [ $# -gt 0 ]; then
+    key=$1
+else
+    key="Exit"
+fi
+
+imageIds=`docker ps -a|grep $key|awk '{print $1}'`
+imageCmds=`docker ps -a|grep $key|awk '{print $2}'`
+
+for id in $imageIds
+do
+    echo "Removing container $id"
+    docker rm $id
+done
+
