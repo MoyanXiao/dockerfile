@@ -13,7 +13,8 @@ RUN apt-get update && \
 
 RUN apt-get install -y openssh-server
 RUN mkdir -p /var/run/sshd
-RUN  apt-get install -y build-essential
+RUN apt-get install -y build-essential
+RUN apt-get install -y python-software-properties software-properties-common 
 
 # Add files.
 ADD root/.bashrc /root/.bashrc
